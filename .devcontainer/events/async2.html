@@ -1,1 +1,26 @@
- 
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Async-2</title>
+    </head>
+    <body>
+        <h1>Async</h1>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+    </body>
+    <script>
+       let intervalId
+       const startTime = function (){
+        console.log("HI")
+        }
+        document.querySelector('#start').addEventListener('click',function(){
+        if(!intervalId){
+           intervalId= setInterval(startTime,1000);
+        }
+    })
+        document.querySelector('#stop').addEventListener('click',function(){ 
+            clearInterval(intervalId)
+            intervalId=null;
+        })
+    </script>
+</html
