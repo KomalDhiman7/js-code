@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>XMLHttpRequest Example</title>
+    </head>
+    <body style="background-color: black; color: white">
+        <div id="status">0. UNSENT: Client has been created. open() not called yet.</div>
+        <div id="status">1. OPENED: open() has been called.</div>
+        <div id="status">2. HEADERS_RECEIVED: send() has been called, and headers and status are available.</div>
+        <div id="status">3. LOADING: Downloading; responseText holds partial data.</div>
+        <div id="status">4. DONE: The operation is complete.</div>
+
+        <script>
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'https://api.github.com/users/Komaldhiman7');
+            xhr.onreadystatechange=function(){
+                console.log(xhr.readyState);
+                if(xhr.readyState===4){
+                    //console.log(this.responseText);
+                    const data = JSON.parse(this.responseText)
+                    console.log(data);
+                    console.log(data.followers)
+
+                }
+            }
+            
+            xhr.send();
+        </script>
+    </body>
+</html>

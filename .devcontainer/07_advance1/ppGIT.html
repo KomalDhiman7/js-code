@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>XMLHttpRequest Example</title>
+    </head>
+    <body style="background-color: black; color: white">
+        <div id="status">0. UNSENT: Client has been created. open() not called yet.</div>
+        <div id="status">1. OPENED: open() has been called.</div>
+        <div id="status">2. HEADERS_RECEIVED: send() has been called, and headers and status are available.</div>
+        <div id="status">3. LOADING: Downloading; responseText holds partial data.</div>
+        <div id="status">4. DONE: The operation is complete.</div>
+
+        <button id="getpp">Get Profile Picture</button>
+        <div id="profile-picture"></div>
+
+        <script>
+            document.getElementById('getpp').addEventListener('click', function() {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'https://api.github.com/users/Komaldhiman7');
+                
+                xhr.onreadystatechange = function() {
+                    console.log(xhr.readyState);
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            const data = JSON.parse(xhr.responseText);
+                            console.log(data);
+                            console.log(data.avatar_url);
+                            const profilePic = document.createElement('img');
+                            profilePic.src = data.avatar_url;
+                            profilePic.alt = 'GitHub Profile Picture';
+                            profilePic.style.width = '150px';
+                            profilePic.style.height = '150px';
+                            document.getElementById('profile-picture').innerHTML = '';
+                            document.getElementById('profile-picture').appendChild(profilePic);
+                        } else {
+                            console.error('Error fetching data');
+                        }
+                    }
+                };
+                
+                xhr.send();
+            });
+        </script>
+    </body>
+</html>
