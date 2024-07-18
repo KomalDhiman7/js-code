@@ -1,4 +1,9 @@
 // make promise
+
+// note: IF we  get an  error 404; we  get it  as a response  not in reject
+
+
+
 const promiseone = new Promise(function (resolve,reject){
     //Do an async task
     //DB calls,cryptography
@@ -60,7 +65,7 @@ promise4
 })
 
 
-const promise5 = new Promise(function(resolve,reject){
+const promise5 = new Promise(function(resolve,reject){       
     setTimeout(()=>{
         let error = true
         if  (!error){
@@ -80,6 +85,7 @@ async function consumePromiseFive(){
 }
 consumePromiseFive()
 
+//  FETCH====================================
 
 fetch('https://jsonplaceholder.typicode.com/')
 .then((response)=>{
