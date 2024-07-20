@@ -1,5 +1,8 @@
 // Immediately Invoke Function Expressions (IIFE)
 
+//n IIFE in JavaScript is a function that is executed immediately after it is defined. 
+//It is a design pattern that provides a way to create a private scope to avoid polluting the global scope, often used to encapsulate code.
+
 (function chai(){              // name iife
     console.log(`DB connected`);
 })();
