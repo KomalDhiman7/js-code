@@ -1,4 +1,5 @@
 // this keyword is  used  for current  contextt
+
 // const userOne ={
 //     name: "KOmal",
 //     loginCount: "8",
@@ -15,7 +16,7 @@ function User(username,loginCount,isLoggedIn){
 
     return this     // return is implicitally defined (byDEfault)
 }
-const userOne= new User("komal","8",true)    // if we doesn't wrote "new" keyword, then while printing userOne values, UserTwo values wwill also get overwrite.
+const userOne= new User("komal","8",true)    // if we do n't wrote "new" keyword, then while printing userOne values, UserTwo values wwill also get overwrite.
 const userTwo= new User("Sam","7",false)            // new generates a consstructor function
 //console.log(userOne);
 console.log(userTwo);
